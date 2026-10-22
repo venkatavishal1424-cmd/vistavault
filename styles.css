@@ -310,6 +310,10 @@ h2 {
   background: rgb(234 229 216 / 43%);
 }
 
+.empty-state[hidden] {
+  display: none;
+}
+
 .empty-number {
   align-self: flex-start;
   color: var(--clay);
@@ -341,11 +345,57 @@ h2 {
   font-size: 1.45rem;
 }
 
+.result-count {
+  min-height: 1.2em;
+  margin: 1.6rem 0 -0.35rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
 #results {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 1.25rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
+}
+
+.image-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #faf8f2;
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.image-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgb(37 55 45 / 10%);
+}
+
+.image-card:focus-visible {
+  outline: 3px solid var(--clay);
+  outline-offset: 3px;
+}
+
+.image-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--paper-deep);
+}
+
+.image-card-caption {
+  overflow: hidden;
+  padding: 0.8rem 0.9rem;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .site-footer {
