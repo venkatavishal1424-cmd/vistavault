@@ -352,6 +352,34 @@ h2 {
   font-size: 0.78rem;
 }
 
+.loading-state {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.6rem;
+  color: var(--forest);
+  font-size: 0.84rem;
+}
+
+.loading-state[hidden] {
+  display: none;
+}
+
+.loading-spinner {
+  width: 17px;
+  height: 17px;
+  border: 2px solid var(--paper-deep);
+  border-top-color: var(--forest);
+  border-radius: 50%;
+  animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 #results {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -368,7 +396,20 @@ h2 {
   background: #faf8f2;
   color: var(--ink);
   text-decoration: none;
+  animation: card-arrive 260ms ease both;
   transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+@keyframes card-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .image-card:hover {
@@ -482,5 +523,6 @@ h2 {
   *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
